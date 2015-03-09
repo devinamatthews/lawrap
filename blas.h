@@ -1,5 +1,5 @@
-#ifndef _BLAS_H_
-#define _BLAS_H_
+#ifndef _LAWRAP_BLAS_H_
+#define _LAWRAP_BLAS_H_
 
 #include "fortran.h"
 
@@ -1351,6 +1351,9 @@ static inline void c_ztrsm (const char side, const char uplo, const char transa,
 
 #ifdef __cplusplus
 
+namespace LAWrap
+{
+
 /******************************************************************************
  *
  * Level 1 BLAS, C++ overloads
@@ -2451,6 +2454,8 @@ inline void trsm(const char side, const char uplo, const char transa, const char
                                              dcomplex* b, const integer ldb)
 {
     ztrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+}
+
 }
 
 #endif
