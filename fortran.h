@@ -14,11 +14,8 @@
 #define cimag imag
 #define cimagf imag
 
-namespace LAWrap
-{
-    typedef std::complex<float> scomplex;
-    typedef std::complex<double> dcomplex;
-}
+typedef std::complex<float> scomplex;
+typedef std::complex<double> dcomplex;
 
 #elif __STDC_VERSION__ >= 199901L
 
@@ -55,11 +52,6 @@ typedef struct dcomplex_
 #define FORTRAN_INTEGER_SIZE 4
 #endif
 
-#ifdef __cplusplus
-namespace LAWrap
-{
-#endif
-
 #if FORTRAN_INTEGER_SIZE == 1
 typedef int8_t integer;
 #elif FORTRAN_INTEGER_SIZE == 2
@@ -73,10 +65,6 @@ typedef int64_t integer;
 #endif
 
 typedef integer logical;
-
-#ifdef __cplusplus
-}
-#endif
 
 /*
  * lowercase symbols with underscore are most common

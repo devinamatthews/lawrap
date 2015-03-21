@@ -5,6 +5,16 @@
 #error "This file must only be included through lapack.h."
 #endif
 
+#ifndef MAX
+#define LAWRAP_MAX_DEFINED
+#define MAX(a,b) ((a) < (b) ? (b) : (a))
+#endif
+
+#ifndef MIN
+#define LAWRAP_MIN_DEFINED
+#define MIN(a,b) ((a) > (b) ? (b) : (a))
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -11724,5 +11734,13 @@ static inline integer c_zgeqrfp( integer m, integer n, dcomplex* a, integer lda,
 #define dgeqrfp c_dgeqrfp
 #define cgeqrfp c_cgeqrfp
 #define zgeqrfp c_zgeqrfp
+
+#ifdef LAWRAP_MAX_DEFINED
+#undef MAX
+#endif
+
+#ifdef LAWRAP_MIN_DEFINED
+#undef MIN
+#endif
 
 #endif

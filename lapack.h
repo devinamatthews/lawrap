@@ -16,7 +16,7 @@
 
 #ifndef LAWRAP_FREE
 #ifdef __cplusplus
-#define LAWRAP_FREE(x) delete x
+#define LAWRAP_FREE(x) delete[] x
 #else
 #define LAWRAP_FREE(x) free(x)
 #endif
