@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifndef LAWRAP_COMPLEX_DEFINED
+
 #ifdef __cplusplus
 
 #include <complex>
@@ -42,6 +44,8 @@ typedef struct dcomplex_
 #pragma pack(pop)
 
 //TODO: add creal etc.
+
+#endif
 
 #endif
 

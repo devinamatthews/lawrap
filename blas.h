@@ -8,6 +8,8 @@ extern "C"
 {
 #endif
 
+#ifndef LAWRAP_F77_INTERFACE_DEFINED
+
 /******************************************************************************
  *
  * Level 1 BLAS, FORTRAN prototypes
@@ -176,6 +178,8 @@ void FC_FUNC(zherk,ZHERK)  (                  const char* uplo, const char* tran
 void FC_FUNC(zher2k,ZHER2K)(                  const char* uplo, const char* trans,                                                          const integer* n, const integer* k, const dcomplex* alpha, const dcomplex* a, const integer* lda, const dcomplex* b, const integer* ldb, const   double* beta, dcomplex* c, const integer* ldc);
 void FC_FUNC(ztrmm,ZTRMM)  (const char* side, const char* uplo, const char* transa,                     const char* diag, const integer* m, const integer* n,                   const dcomplex* alpha, const dcomplex* a, const integer* lda,       dcomplex* b, const integer* ldb);
 void FC_FUNC(ztrsm,ZTRSM)  (const char* side, const char* uplo, const char* transa,                     const char* diag, const integer* m, const integer* n,                   const dcomplex* alpha, const dcomplex* a, const integer* lda,       dcomplex* b, const integer* ldb);
+
+#endif
 
 /******************************************************************************
  *

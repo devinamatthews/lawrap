@@ -33,7 +33,9 @@ enum {AXBX=1, ABX=2, BAX=3};
 }
 #endif
 
+#ifndef LAWRAP_F77_INTERFACE_DEFINED
 #include "internal/lapack_f77.h"
+#endif
 #include "internal/lapack_c89.h"
 #ifdef __cplusplus
 #include "internal/lapack_c++.hpp"
