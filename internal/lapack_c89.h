@@ -7121,8 +7121,8 @@ static inline integer c_shseqr( char job, char compz, integer n, integer ilo,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(shseqr,SHSEQR)(&job, &compz, &n, &ilo, &ihi, h, &ldh, wr, wi, z, &ldz, work, &lwork, &info);
-    scopy(n,wr,1,(float*)w  ,2);
-    scopy(n,wi,1,(float*)w+1,2);
+    c_scopy(n,wr,1,(float*)w  ,2);
+    c_scopy(n,wi,1,(float*)w+1,2);
     LAWRAP_FREE(work);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
@@ -7141,8 +7141,8 @@ static inline integer c_dhseqr( char job, char compz, integer n, integer ilo,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dhseqr,DHSEQR)(&job, &compz, &n, &ilo, &ihi, h, &ldh, wr, wi, z, &ldz, work, &lwork, &info);
-    dcopy(n,wr,1,(double*)w  ,2);
-    dcopy(n,wi,1,(double*)w+1,2);
+    c_dcopy(n,wr,1,(double*)w  ,2);
+    c_dcopy(n,wi,1,(double*)w+1,2);
     LAWRAP_FREE(work);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
@@ -7188,8 +7188,8 @@ static inline integer c_shsein( char job, char eigsrc, char initv,
     float *work = LAWRAP_MALLOC(float,(2+n)*n);
     float *wr = LAWRAP_MALLOC(float,n);
     float *wi = LAWRAP_MALLOC(float,n);
-    scopy(n,(float*)w  ,2,wr,1);
-    scopy(n,(float*)w+1,2,wi,1);
+    c_scopy(n,(float*)w  ,2,wr,1);
+    c_scopy(n,(float*)w+1,2,wi,1);
     FC_FUNC(shsein,SHSEIN)(&job, &eigsrc, &initv, select, &n, h, &ldh, wr, wi, vl, &ldvl, vr, &ldvr, &mm, m, work,
                             ifaill, ifailr, &info);
     LAWRAP_FREE(wr);
@@ -7209,8 +7209,8 @@ static inline integer c_dhsein( char job, char eigsrc, char initv,
     double *work = LAWRAP_MALLOC(double,(2+n)*n);
     double *wr = LAWRAP_MALLOC(double,n);
     double *wi = LAWRAP_MALLOC(double,n);
-    dcopy(n,(double*)w  ,2,wr,1);
-    dcopy(n,(double*)w+1,2,wi,1);
+    c_dcopy(n,(double*)w  ,2,wr,1);
+    c_dcopy(n,(double*)w+1,2,wi,1);
     FC_FUNC(dhsein,DHSEIN)(&job, &eigsrc, &initv, select, &n, h, &ldh, wr, wi, vl, &ldvl, vr, &ldvr, &mm, m, work,
                             ifaill, ifailr, &info);
     LAWRAP_FREE(wr);
@@ -7421,8 +7421,8 @@ static inline integer c_strsen( char job, char compq, const logical* select,
     work = LAWRAP_MALLOC(float,lwork);
     iwork = LAWRAP_MALLOC(integer,liwork);
     FC_FUNC(strsen,STRSEN)(&job, &compq, select, &n, t, &ldt, q, &ldq, wr, wi, m, s, sep, work, &lwork, iwork, &liwork, &info);
-    scopy(n,wr,1,(float*)w  ,2);
-    scopy(n,wi,1,(float*)w+1,2);
+    c_scopy(n,wr,1,(float*)w  ,2);
+    c_scopy(n,wi,1,(float*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -7446,8 +7446,8 @@ static inline integer c_dtrsen( char job, char compq, const logical* select,
     work = LAWRAP_MALLOC(double,lwork);
     iwork = LAWRAP_MALLOC(integer,liwork);
     FC_FUNC(dtrsen,DTRSEN)(&job, &compq, select, &n, t, &ldt, q, &ldq, wr, wi, m, s, sep, work, &lwork, iwork, &liwork, &info);
-    dcopy(n,wr,1,(double*)w  ,2);
-    dcopy(n,wi,1,(double*)w+1,2);
+    c_dcopy(n,wr,1,(double*)w  ,2);
+    c_dcopy(n,wi,1,(double*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -7661,8 +7661,8 @@ static inline integer c_shgeqz( char job, char compq, char compz, integer n,
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(shgeqz,SHGEQZ)(&job, &compq, &compz, &n, &ilo, &ihi, h, &ldh, t, &ldt, alphar, alphai, beta, q, &ldq, z, &ldz,
                             work, &lwork, &info);
-    scopy(n,alphar,1,(float*)alpha  ,2);
-    scopy(n,alphai,1,(float*)alpha+1,2);
+    c_scopy(n,alphar,1,(float*)alpha  ,2);
+    c_scopy(n,alphai,1,(float*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -7685,8 +7685,8 @@ static inline integer c_dhgeqz( char job, char compq, char compz, integer n,
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dhgeqz,DHGEQZ)(&job, &compq, &compz, &n, &ilo, &ihi, h, &ldh, t, &ldt, alphar, alphai, beta, q, &ldq, z, &ldz,
                             work, &lwork, &info);
-    dcopy(n,alphar,1,(double*)alpha  ,2);
-    dcopy(n,alphai,1,(double*)alpha+1,2);
+    c_dcopy(n,alphar,1,(double*)alpha  ,2);
+    c_dcopy(n,alphai,1,(double*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -7860,8 +7860,8 @@ static inline integer c_stgsen( integer ijob, logical wantq,
     iwork = LAWRAP_MALLOC(integer,liwork);
     FC_FUNC(stgsen,STGSEN)(&ijob, &wantq, &wantz, select, &n, a, &lda, b, &ldb, alphar, alphai, beta, q, &ldq, z, &ldz,
                             m, pl, pr, dif, work, &lwork, iwork, &liwork, &info);
-    scopy(n,alphar,1,(float*)alpha  ,2);
-    scopy(n,alphai,1,(float*)alpha+1,2);
+    c_scopy(n,alphar,1,(float*)alpha  ,2);
+    c_scopy(n,alphai,1,(float*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -7890,8 +7890,8 @@ static inline integer c_dtgsen( integer ijob, logical wantq,
     iwork = LAWRAP_MALLOC(integer,liwork);
     FC_FUNC(dtgsen,DTGSEN)(&ijob, &wantq, &wantz, select, &n, a, &lda, b, &ldb, alphar, alphai, beta, q, &ldq, z, &ldz,
                             m, pl, pr, dif, work, &lwork, iwork, &liwork, &info);
-    dcopy(n,alphar,1,(double*)alpha  ,2);
-    dcopy(n,alphai,1,(double*)alpha+1,2);
+    c_dcopy(n,alphar,1,(double*)alpha  ,2);
+    c_dcopy(n,alphai,1,(double*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -9355,8 +9355,8 @@ static inline integer c_sgeev( char jobvl, char jobvr, integer n, float* a,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(sgeev,SGEEV)(&jobvl, &jobvr, &n, a, &lda, wr, wi, vl, &ldvl, vr, &ldvr, work, &lwork, &info);
-    scopy(n,wr,1,(float*)w  ,2);
-    scopy(n,wi,1,(float*)w+1,2);
+    c_scopy(n,wr,1,(float*)w  ,2);
+    c_scopy(n,wi,1,(float*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -9375,8 +9375,8 @@ static inline integer c_dgeev( char jobvl, char jobvr, integer n, double* a,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dgeev,DGEEV)(&jobvl, &jobvr, &n, a, &lda, wr, wi, vl, &ldvl, vr, &ldvr, work, &lwork, &info);
-    dcopy(n,wr,1,(double*)w  ,2);
-    dcopy(n,wi,1,(double*)w+1,2);
+    c_dcopy(n,wr,1,(double*)w  ,2);
+    c_dcopy(n,wi,1,(double*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -9433,8 +9433,8 @@ static inline integer c_sgeevx( char balanc, char jobvl, char jobvr, char sense,
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(sgeevx,SGEEVX)(&balanc, &jobvl, &jobvr, &sense, &n, a, &lda, wr, wi, vl, &ldvl, vr, &ldvr, ilo, ihi, scale, abnrm,
                             rconde, rcondv, work, &lwork, iwork, &info);
-    scopy(n,wr,1,(float*)w  ,2);
-    scopy(n,wi,1,(float*)w+1,2);
+    c_scopy(n,wr,1,(float*)w  ,2);
+    c_scopy(n,wi,1,(float*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -9460,8 +9460,8 @@ static inline integer c_dgeevx( char balanc, char jobvl, char jobvr, char sense,
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dgeevx,DGEEVX)(&balanc, &jobvl, &jobvr, &sense, &n, a, &lda, wr, wi, vl, &ldvl, vr, &ldvr, ilo, ihi, scale, abnrm,
                             rconde, rcondv, work, &lwork, iwork, &info);
-    dcopy(n,wr,1,(double*)w  ,2);
-    dcopy(n,wi,1,(double*)w+1,2);
+    c_dcopy(n,wr,1,(double*)w  ,2);
+    c_dcopy(n,wi,1,(double*)w+1,2);
     LAWRAP_FREE(wr);
     LAWRAP_FREE(wi);
     LAWRAP_FREE(work);
@@ -10414,8 +10414,8 @@ static inline integer c_sggev( char jobvl, char jobvr, integer n, float* a,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(sggev,SGGEV)(&jobvl, &jobvr, &n, a, &lda, b, &ldb, alphar, alphai, beta, vl, &ldvl, vr, &ldvr, work, &lwork, &info);
-    scopy(n,alphar,1,(float*)alpha  ,2);
-    scopy(n,alphai,1,(float*)alpha+1,2);
+    c_scopy(n,alphar,1,(float*)alpha  ,2);
+    c_scopy(n,alphai,1,(float*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -10435,8 +10435,8 @@ static inline integer c_dggev( char jobvl, char jobvr, integer n, double* a,
     lwork = (integer)query;
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dggev,DGGEV)(&jobvl, &jobvr, &n, a, &lda, b, &ldb, alphar, alphai, beta, vl, &ldvl, vr, &ldvr, work, &lwork, &info);
-    dcopy(n,alphar,1,(double*)alpha  ,2);
-    dcopy(n,alphai,1,(double*)alpha+1,2);
+    c_dcopy(n,alphar,1,(double*)alpha  ,2);
+    c_dcopy(n,alphai,1,(double*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -10497,8 +10497,8 @@ static inline integer c_sggevx( char balanc, char jobvl, char jobvr, char sense,
     work = LAWRAP_MALLOC(float,lwork);
     FC_FUNC(sggevx,SGGEVX)(&balanc, &jobvl, &jobvr, &sense, &n, a, &lda, b, &ldb, alphar, alphai, beta, vl, &ldvl, vr, &ldvr,
                             ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv, work, &lwork, iwork, bwork, &info);
-    scopy(n,alphar,1,(float*)alpha  ,2);
-    scopy(n,alphai,1,(float*)alpha+1,2);
+    c_scopy(n,alphar,1,(float*)alpha  ,2);
+    c_scopy(n,alphai,1,(float*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -10527,8 +10527,8 @@ static inline integer c_dggevx( char balanc, char jobvl, char jobvr, char sense,
     work = LAWRAP_MALLOC(double,lwork);
     FC_FUNC(dggevx,DGGEVX)(&balanc, &jobvl, &jobvr, &sense, &n, a, &lda, b, &ldb, alphar, alphai, beta, vl, &ldvl, vr, &ldvr,
                             ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv, work, &lwork, iwork, bwork, &info);
-    dcopy(n,alphar,1,(double*)alpha  ,2);
-    dcopy(n,alphai,1,(double*)alpha+1,2);
+    c_dcopy(n,alphar,1,(double*)alpha  ,2);
+    c_dcopy(n,alphai,1,(double*)alpha+1,2);
     LAWRAP_FREE(alphar);
     LAWRAP_FREE(alphai);
     LAWRAP_FREE(work);
@@ -10891,7 +10891,7 @@ static inline integer c_zgeqrfp( integer m, integer n, dcomplex* a, integer lda,
 
 #ifdef __cplusplus
 }
-#endif
+#else
 
 /*
  * #define more familiar names for the C versions
@@ -11734,6 +11734,8 @@ static inline integer c_zgeqrfp( integer m, integer n, dcomplex* a, integer lda,
 #define dgeqrfp c_dgeqrfp
 #define cgeqrfp c_cgeqrfp
 #define zgeqrfp c_zgeqrfp
+
+#endif
 
 #ifdef LAWRAP_MAX_DEFINED
 #undef MAX

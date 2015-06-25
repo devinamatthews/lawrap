@@ -1200,7 +1200,7 @@ static inline void c_ztrsm (const char side, const char uplo, const char transa,
 
 #ifdef __cplusplus
 }
-#endif
+#else
 
 /*
  * #define more familiar names for the C versions
@@ -1353,6 +1353,8 @@ static inline void c_ztrsm (const char side, const char uplo, const char transa,
 #define ztrmm  c_ztrmm
 #define ztrsm  c_ztrsm
 
+#endif
+
 #ifdef __cplusplus
 
 namespace LAWrap
@@ -1365,300 +1367,300 @@ namespace LAWrap
  *****************************************************************************/
 inline void rotg(float* a, float* b, float* c, float* s)
 {
-    srotg(a, b, c, s);
+    c_srotg(a, b, c, s);
 }
 
 inline void rotg(double* a, double* b, double* c, double* s)
 {
-    drotg(a, b, c, s);
+    c_drotg(a, b, c, s);
 }
 
 inline void rotg(scomplex* a, scomplex* b, float* c, scomplex* s)
 {
-    crotg(a, b, c, s);
+    c_crotg(a, b, c, s);
 }
 
 inline void rotg(dcomplex* a, dcomplex* b, double* c, dcomplex* s)
 {
-    zrotg(a, b, c, s);
+    c_zrotg(a, b, c, s);
 }
 
 inline void rotmg(float* d1, float* d2, float* a, const float b, float* param)
 {
-    srotmg(d1, d2, a, b, param);
+    c_srotmg(d1, d2, a, b, param);
 }
 
 inline void rotmg(double* d1, double* d2, double* a, const double b, double* param)
 {
-    drotmg(d1, d2, a, b, param);
+    c_drotmg(d1, d2, a, b, param);
 }
 
 inline void rot(const integer n, float* x, const integer incx,
                                  float* y, const integer incy, const float c, const float s)
 {
-    srot(n, x, incx, y, incy, c, s);
+    c_srot(n, x, incx, y, incy, c, s);
 }
 
 inline void rot(const integer n, double* x, const integer incx,
                                  double* y, const integer incy, const double c, const double s)
 {
-    drot(n, x, incx, y, incy, c, s);
+    c_drot(n, x, incx, y, incy, c, s);
 }
 
 inline void rot(const integer n, scomplex* x, const integer incx,
                                  scomplex* y, const integer incy, const float c, const float s)
 {
-    csrot(n, x, incx, y, incy, c, s);
+    c_csrot(n, x, incx, y, incy, c, s);
 }
 
 inline void rot(const integer n, dcomplex* x, const integer incx,
                                  dcomplex* y, const integer incy, const double c, const double s)
 {
-    zdrot(n, x, incx, y, incy, c, s);
+    c_zdrot(n, x, incx, y, incy, c, s);
 }
 
 inline void rotm(const integer n, float* x, const integer incx,
                                   float* y, const integer incy, float* param)
 {
-    srotm(n, x, incx, y, incy, param);
+    c_srotm(n, x, incx, y, incy, param);
 }
 
 inline void rotm(const integer n, double* x, const integer incx,
                                   double* y, const integer incy, double* param)
 {
-    drotm(n, x, incx, y, incy, param);
+    c_drotm(n, x, incx, y, incy, param);
 }
 
 inline void swap(const integer n, float* x, const integer incx,
                                   float* y, const integer incy)
 {
-    sswap(n, x, incx, y, incy);
+    c_sswap(n, x, incx, y, incy);
 }
 
 inline void swap(const integer n, double* x, const integer incx,
                                   double* y, const integer incy)
 {
-    dswap(n, x, incx, y, incy);
+    c_dswap(n, x, incx, y, incy);
 }
 
 inline void swap(const integer n, scomplex* x, const integer incx,
                                   scomplex* y, const integer incy)
 {
-    cswap(n, x, incx, y, incy);
+    c_cswap(n, x, incx, y, incy);
 }
 
 inline void swap(const integer n, dcomplex* x, const integer incx,
                                   dcomplex* y, const integer incy)
 {
-    zswap(n, x, incx, y, incy);
+    c_zswap(n, x, incx, y, incy);
 }
 
 inline void scal(const integer n, const float alpha, float* x, const integer incx)
 {
-    sscal(n, alpha, x, incx);
+    c_sscal(n, alpha, x, incx);
 }
 
 inline void scal(const integer n, const double alpha, double* x, const integer incx)
 {
-    dscal(n, alpha, x, incx);
+    c_dscal(n, alpha, x, incx);
 }
 
 inline void scal(const integer n, const scomplex alpha, scomplex* x, const integer incx)
 {
-    cscal(n, alpha, x, incx);
+    c_cscal(n, alpha, x, incx);
 }
 
 inline void scal(const integer n, const dcomplex alpha, dcomplex* x, const integer incx)
 {
-    zscal(n, alpha, x, incx);
+    c_zscal(n, alpha, x, incx);
 }
 
 inline void scal(const integer n, const float alpha, scomplex* x, const integer incx)
 {
-    csscal(n, alpha, x, incx);
+    c_csscal(n, alpha, x, incx);
 }
 
 inline void scal(const integer n, const float alpha, dcomplex* x, const integer incx)
 {
-    zdscal(n, alpha, x, incx);
+    c_zdscal(n, alpha, x, incx);
 }
 
 inline void copy(const integer n, const float* x, const integer incx,
                                         float* y, const integer incy)
 {
-    scopy(n, x, incx, y, incy);
+    c_scopy(n, x, incx, y, incy);
 }
 
 inline void copy(const integer n, const double* x, const integer incx,
                                         double* y, const integer incy)
 {
-    dcopy(n, x, incx, y, incy);
+    c_dcopy(n, x, incx, y, incy);
 }
 
 inline void copy(const integer n, const scomplex* x, const integer incx,
                                         scomplex* y, const integer incy)
 {
-    ccopy(n, x, incx, y, incy);
+    c_ccopy(n, x, incx, y, incy);
 }
 
 inline void copy(const integer n, const dcomplex* x, const integer incx,
                                         dcomplex* y, const integer incy)
 {
-    zcopy(n, x, incx, y, incy);
+    c_zcopy(n, x, incx, y, incy);
 }
 
 inline void axpy(const integer n, const float alpha, const float* x, const integer incx,
                                                            float* y, const integer incy)
 {
-    saxpy(n, alpha, x, incx, y, incy);
+    c_saxpy(n, alpha, x, incx, y, incy);
 }
 
 inline void axpy(const integer n, const double alpha, const double* x, const integer incx,
                                                             double* y, const integer incy)
 {
-    daxpy(n, alpha, x, incx, y, incy);
+    c_daxpy(n, alpha, x, incx, y, incy);
 }
 
 inline void axpy(const integer n, const scomplex alpha, const scomplex* x, const integer incx,
                                                               scomplex* y, const integer incy)
 {
-    caxpy(n, alpha, x, incx, y, incy);
+    c_caxpy(n, alpha, x, incx, y, incy);
 }
 
 inline void axpy(const integer n, const dcomplex alpha, const dcomplex* x, const integer incx,
                                                               dcomplex* y, const integer incy)
 {
-    zaxpy(n, alpha, x, incx, y, incy);
+    c_zaxpy(n, alpha, x, incx, y, incy);
 }
 
 inline float dotc(const integer n, const float* x, const integer incx,
                                    const float* y, const integer incy)
 {
-    return sdot(n, x, incx, y, incy);
+    return c_sdot(n, x, incx, y, incy);
 }
 
 inline double dotc(const integer n, const double* x, const integer incx,
                                     const double* y, const integer incy)
 {
-    return ddot(n, x, incx, y, incy);
+    return c_ddot(n, x, incx, y, incy);
 }
 
 inline scomplex dotc(const integer n, const scomplex* x, const integer incx,
                                       const scomplex* y, const integer incy)
 {
-    return cdotc(n, x, incx, y, incy);
+    return c_cdotc(n, x, incx, y, incy);
 }
 
 inline dcomplex dotc(const integer n, const dcomplex* x, const integer incx,
                                       const dcomplex* y, const integer incy)
 {
-    return zdotc(n, x, incx, y, incy);
+    return c_zdotc(n, x, incx, y, incy);
 }
 
 inline float dotu(const integer n, const float* x, const integer incx,
                                    const float* y, const integer incy)
 {
-    return sdot(n, x, incx, y, incy);
+    return c_sdot(n, x, incx, y, incy);
 }
 
 inline double dotu(const integer n, const double* x, const integer incx,
                                     const double* y, const integer incy)
 {
-    return ddot(n, x, incx, y, incy);
+    return c_ddot(n, x, incx, y, incy);
 }
 
 inline scomplex dotu(const integer n, const scomplex* x, const integer incx,
                                       const scomplex* y, const integer incy)
 {
-    return cdotu(n, x, incx, y, incy);
+    return c_cdotu(n, x, incx, y, incy);
 }
 
 inline dcomplex dotu(const integer n, const dcomplex* x, const integer incx,
                                       const dcomplex* y, const integer incy)
 {
-    return zdotu(n, x, incx, y, incy);
+    return c_zdotu(n, x, incx, y, incy);
 }
 
 #define dot dotc
 
 inline float nrm2(const integer n, const float* x, const integer incx)
 {
-    return snrm2(n, x, incx);
+    return c_snrm2(n, x, incx);
 }
 
 inline double nrm2(const integer n, const double* x, const integer incx)
 {
-    return dnrm2(n, x, incx);
+    return c_dnrm2(n, x, incx);
 }
 
 inline float nrm2(const integer n, const scomplex* x, const integer incx)
 {
-    return scnrm2(n, x, incx);
+    return c_scnrm2(n, x, incx);
 }
 
 inline double nrm2(const integer n, const dcomplex* x, const integer incx)
 {
-    return dznrm2(n, x, incx);
+    return c_dznrm2(n, x, incx);
 }
 
 inline float asum(const integer n, const float* x, const integer incx)
 {
-    return sasum(n, x, incx);
+    return c_sasum(n, x, incx);
 }
 
 inline double asum(const integer n, const double* x, const integer incx)
 {
-    return dasum(n, x, incx);
+    return c_dasum(n, x, incx);
 }
 
 inline float asum(const integer n, const scomplex* x, const integer incx)
 {
-    return scasum(n, x, incx);
+    return c_scasum(n, x, incx);
 }
 
 inline double asum(const integer n, const dcomplex* x, const integer incx)
 {
-    return dzasum(n, x, incx);
+    return c_dzasum(n, x, incx);
 }
 
 inline integer iamax(const integer n, const float* x, const integer incx)
 {
-    return isamax(n, x, incx);
+    return c_isamax(n, x, incx);
 }
 
 inline integer iamax(const integer n, const double* x, const integer incx)
 {
-    return idamax(n, x, incx);
+    return c_idamax(n, x, incx);
 }
 
 inline integer iamax(const integer n, const scomplex* x, const integer incx)
 {
-    return icamax(n, x, incx);
+    return c_icamax(n, x, incx);
 }
 
 inline integer iamax(const integer n, const dcomplex* x, const integer incx)
 {
-    return izamax(n, x, incx);
+    return c_izamax(n, x, incx);
 }
 
 inline float amax(const integer n, const float* x, const integer incx)
 {
-    return x[isamax(n, x, incx)];
+    return x[c_isamax(n, x, incx)];
 }
 
 inline double amax(const integer n, const double* x, const integer incx)
 {
-    return x[idamax(n, x, incx)];
+    return x[c_idamax(n, x, incx)];
 }
 
 inline scomplex amax(const integer n, const scomplex* x, const integer incx)
 {
-    return x[icamax(n, x, incx)];
+    return x[c_icamax(n, x, incx)];
 }
 
 inline dcomplex amax(const integer n, const dcomplex* x, const integer incx)
 {
-    return x[izamax(n, x, incx)];
+    return x[c_izamax(n, x, incx)];
 }
 
 /******************************************************************************
@@ -1671,7 +1673,7 @@ inline void gemv(const char trans, const integer m, const integer n,
                                     const float* x, const integer incx,
                  const float  beta,       float* y, const integer incy)
 {
-    sgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_sgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gemv(const char trans, const integer m, const integer n,
@@ -1679,7 +1681,7 @@ inline void gemv(const char trans, const integer m, const integer n,
                                      const double* x, const integer incx,
                  const double  beta,       double* y, const integer incy)
 {
-    dgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_dgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gemv(const char trans, const integer m, const integer n,
@@ -1687,7 +1689,7 @@ inline void gemv(const char trans, const integer m, const integer n,
                                        const scomplex* x, const integer incx,
                  const scomplex  beta,       scomplex* y, const integer incy)
 {
-    cgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_cgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gemv(const char trans, const integer m, const integer n,
@@ -1695,7 +1697,7 @@ inline void gemv(const char trans, const integer m, const integer n,
                                        const dcomplex* x, const integer incx,
                  const dcomplex  beta,       dcomplex* y, const integer incy)
 {
-    zgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_zgemv(trans, m, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gbmv(const char trans,
@@ -1704,7 +1706,7 @@ inline void gbmv(const char trans,
                                     const float* x, const integer incx,
                  const float  beta,       float* y, const integer incy)
 {
-    sgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
+    c_sgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gbmv(const char trans,
@@ -1713,7 +1715,7 @@ inline void gbmv(const char trans,
                                      const double* x, const integer incx,
                  const double  beta,       double* y, const integer incy)
 {
-    dgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
+    c_dgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gbmv(const char trans,
@@ -1722,7 +1724,7 @@ inline void gbmv(const char trans,
                                        const scomplex* x, const integer incx,
                  const scomplex  beta,       scomplex* y, const integer incy)
 {
-    cgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
+    c_cgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void gbmv(const char trans,
@@ -1731,7 +1733,7 @@ inline void gbmv(const char trans,
                                        const dcomplex* x, const integer incx,
                  const dcomplex  beta,       dcomplex* y, const integer incy)
 {
-    zgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
+    c_zgbmv(trans, m, n, kl, ku, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hemv(const char uplo, const integer n,
@@ -1739,7 +1741,7 @@ inline void hemv(const char uplo, const integer n,
                                     const float* x, const integer incx,
                  const float  beta,       float* y, const integer incy)
 {
-    ssymv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_ssymv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hemv(const char uplo, const integer n,
@@ -1747,7 +1749,7 @@ inline void hemv(const char uplo, const integer n,
                                      const double* x, const integer incx,
                  const double  beta,       double* y, const integer incy)
 {
-    dsymv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_dsymv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hemv(const char uplo, const integer n,
@@ -1755,7 +1757,7 @@ inline void hemv(const char uplo, const integer n,
                                        const scomplex* x, const integer incx,
                  const scomplex  beta,       scomplex* y, const integer incy)
 {
-    chemv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_chemv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hemv(const char uplo, const integer n,
@@ -1763,7 +1765,7 @@ inline void hemv(const char uplo, const integer n,
                                        const dcomplex* x, const integer incx,
                  const dcomplex  beta,       dcomplex* y, const integer incy)
 {
-    zhemv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
+    c_zhemv(uplo, n, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hbmv(const char uplo, const integer n, const integer k,
@@ -1771,7 +1773,7 @@ inline void hbmv(const char uplo, const integer n, const integer k,
                                     const float* x, const integer incx,
                  const float  beta,       float* y, const integer incy)
 {
-    ssbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
+    c_ssbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hbmv(const char uplo, const integer n, const integer k,
@@ -1779,7 +1781,7 @@ inline void hbmv(const char uplo, const integer n, const integer k,
                                      const double* x, const integer incx,
                  const double  beta,       double* y, const integer incy)
 {
-    dsbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
+    c_dsbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hbmv(const char uplo, const integer n, const integer k,
@@ -1787,7 +1789,7 @@ inline void hbmv(const char uplo, const integer n, const integer k,
                                        const scomplex* x, const integer incx,
                  const scomplex  beta,       scomplex* y, const integer incy)
 {
-    chbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
+    c_chbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hbmv(const char uplo, const integer n, const integer k,
@@ -1795,7 +1797,7 @@ inline void hbmv(const char uplo, const integer n, const integer k,
                                        const dcomplex* x, const integer incx,
                  const dcomplex  beta,       dcomplex* y, const integer incy)
 {
-    zhbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
+    c_zhbmv(uplo, n, k, alpha, a, lda, x, incx, beta, y, incy);
 }
 
 inline void hpmv(const char uplo, const integer n,
@@ -1803,7 +1805,7 @@ inline void hpmv(const char uplo, const integer n,
                                     const float*  x, const integer incx,
                  const float  beta,       float*  y, const integer incy)
 {
-    sspmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
+    c_sspmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
 }
 
 inline void hpmv(const char uplo, const integer n,
@@ -1811,7 +1813,7 @@ inline void hpmv(const char uplo, const integer n,
                                      const double*  x, const integer incx,
                  const double  beta,       double*  y, const integer incy)
 {
-    dspmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
+    c_dspmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
 }
 
 inline void hpmv(const char uplo, const integer n,
@@ -1819,7 +1821,7 @@ inline void hpmv(const char uplo, const integer n,
                                        const scomplex*  x, const integer incx,
                  const scomplex  beta,       scomplex*  y, const integer incy)
 {
-    chpmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
+    c_chpmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
 }
 
 inline void hpmv(const char uplo, const integer n,
@@ -1827,35 +1829,35 @@ inline void hpmv(const char uplo, const integer n,
                                        const dcomplex*  x, const integer incx,
                  const dcomplex  beta,       dcomplex*  y, const integer incy)
 {
-    zhpmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
+    c_zhpmv(uplo, n, alpha, ap, x, incx, beta, y, incy);
 }
 
 inline void trmv(const char uplo, const char trans, const char diag, const integer n,
                  const float* a, const integer lda,
                        float* x, const integer incx)
 {
-    strmv(uplo, trans, diag, n, a, lda, x, incx);
+    c_strmv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trmv(const char uplo, const char trans, const char diag, const integer n,
                  const double* a, const integer lda,
                        double* x, const integer incx)
 {
-    dtrmv(uplo, trans, diag, n, a, lda, x, incx);
+    c_dtrmv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trmv(const char uplo, const char trans, const char diag, const integer n,
                  const scomplex* a, const integer lda,
                        scomplex* x, const integer incx)
 {
-    ctrmv(uplo, trans, diag, n, a, lda, x, incx);
+    c_ctrmv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trmv(const char uplo, const char trans, const char diag, const integer n,
                  const dcomplex* a, const integer lda,
                        dcomplex* x, const integer incx)
 {
-    ztrmv(uplo, trans, diag, n, a, lda, x, incx);
+    c_ztrmv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void tbmv(const char uplo, const char trans, const char diag,
@@ -1863,7 +1865,7 @@ inline void tbmv(const char uplo, const char trans, const char diag,
                  const float* a, const integer lda,
                        float* x, const integer incx)
 {
-    stbmv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_stbmv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbmv(const char uplo, const char trans, const char diag,
@@ -1871,7 +1873,7 @@ inline void tbmv(const char uplo, const char trans, const char diag,
                  const double* a, const integer lda,
                        double* x, const integer incx)
 {
-    dtbmv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_dtbmv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbmv(const char uplo, const char trans, const char diag,
@@ -1879,7 +1881,7 @@ inline void tbmv(const char uplo, const char trans, const char diag,
                  const scomplex* a, const integer lda,
                        scomplex* x, const integer incx)
 {
-    ctbmv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_ctbmv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbmv(const char uplo, const char trans, const char diag,
@@ -1887,59 +1889,59 @@ inline void tbmv(const char uplo, const char trans, const char diag,
                  const dcomplex* a, const integer lda,
                        dcomplex* x, const integer incx)
 {
-    ztbmv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_ztbmv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tpmv(const char uplo, const char trans, const char diag, const integer n,
                  const float* ap, float* x, const integer incx)
 {
-    stpmv(uplo, trans, diag, n, ap, x, incx);
+    c_stpmv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpmv(const char uplo, const char trans, const char diag, const integer n,
                  const double* ap, double* x, const integer incx)
 {
-    dtpmv(uplo, trans, diag, n, ap, x, incx);
+    c_dtpmv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpmv(const char uplo, const char trans, const char diag, const integer n,
                  const scomplex* ap, scomplex* x, const integer incx)
 {
-    ctpmv(uplo, trans, diag, n, ap, x, incx);
+    c_ctpmv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpmv(const char uplo, const char trans, const char diag, const integer n,
                  const dcomplex* ap, dcomplex* x, const integer incx)
 {
-    ztpmv(uplo, trans, diag, n, ap, x, incx);
+    c_ztpmv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void trsv(const char uplo, const char trans, const char diag, const integer n,
                  const float* a, const integer lda,
                        float* x, const integer incx)
 {
-    strsv(uplo, trans, diag, n, a, lda, x, incx);
+    c_strsv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trsv(const char uplo, const char trans, const char diag, const integer n,
                  const double* a, const integer lda,
                        double* x, const integer incx)
 {
-    dtrsv(uplo, trans, diag, n, a, lda, x, incx);
+    c_dtrsv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trsv(const char uplo, const char trans, const char diag, const integer n,
                  const scomplex* a, const integer lda,
                        scomplex* x, const integer incx)
 {
-    ctrsv(uplo, trans, diag, n, a, lda, x, incx);
+    c_ctrsv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void trsv(const char uplo, const char trans, const char diag, const integer n,
                  const dcomplex* a, const integer lda,
                        dcomplex* x, const integer incx)
 {
-    ztrsv(uplo, trans, diag, n, a, lda, x, incx);
+    c_ztrsv(uplo, trans, diag, n, a, lda, x, incx);
 }
 
 inline void tbsv(const char uplo, const char trans, const char diag,
@@ -1947,7 +1949,7 @@ inline void tbsv(const char uplo, const char trans, const char diag,
                  const float* a, const integer lda,
                        float* x, const integer incx)
 {
-    stbsv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_stbsv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbsv(const char uplo, const char trans, const char diag,
@@ -1955,7 +1957,7 @@ inline void tbsv(const char uplo, const char trans, const char diag,
                  const double* a, const integer lda,
                        double* x, const integer incx)
 {
-    dtbsv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_dtbsv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbsv(const char uplo, const char trans, const char diag,
@@ -1963,7 +1965,7 @@ inline void tbsv(const char uplo, const char trans, const char diag,
                  const scomplex* a, const integer lda,
                        scomplex* x, const integer incx)
 {
-    ctbsv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_ctbsv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tbsv(const char uplo, const char trans, const char diag,
@@ -1971,31 +1973,31 @@ inline void tbsv(const char uplo, const char trans, const char diag,
                  const dcomplex* a, const integer lda,
                        dcomplex* x, const integer incx)
 {
-    ztbsv(uplo, trans, diag, n, k, a, lda, x, incx);
+    c_ztbsv(uplo, trans, diag, n, k, a, lda, x, incx);
 }
 
 inline void tpsv(const char uplo, const char trans, const char diag, const integer n,
                  const float* ap, float* x, const integer incx)
 {
-    stpsv(uplo, trans, diag, n, ap, x, incx);
+    c_stpsv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpsv(const char uplo, const char trans, const char diag, const integer n,
                  const double* ap, double* x, const integer incx)
 {
-    dtpsv(uplo, trans, diag, n, ap, x, incx);
+    c_dtpsv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpsv(const char uplo, const char trans, const char diag, const integer n,
                  const scomplex* ap, scomplex* x, const integer incx)
 {
-    ctpsv(uplo, trans, diag, n, ap, x, incx);
+    c_ctpsv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void tpsv(const char uplo, const char trans, const char diag, const integer n,
                 const dcomplex* ap, dcomplex* x, const integer incx)
 {
-    ztpsv(uplo, trans, diag, n, ap, x, incx);
+    c_ztpsv(uplo, trans, diag, n, ap, x, incx);
 }
 
 inline void gerc(const integer m, const integer n,
@@ -2003,7 +2005,7 @@ inline void gerc(const integer m, const integer n,
                                     const float* y, const integer incy,
                                           float* a, const integer lda)
 {
-    sger(m, n, alpha, x, incx, y, incy, a, lda);
+    c_sger(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void gerc(const integer m, const integer n,
@@ -2011,7 +2013,7 @@ inline void gerc(const integer m, const integer n,
                                      const double* y, const integer incy,
                                            double* a, const integer lda)
 {
-    dger(m, n, alpha, x, incx, y, incy, a, lda);
+    c_dger(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void gerc(const integer m, const integer n,
@@ -2019,7 +2021,7 @@ inline void gerc(const integer m, const integer n,
                                        const scomplex* y, const integer incy,
                                              scomplex* a, const integer lda)
 {
-    cgerc(m, n, alpha, x, incx, y, incy, a, lda);
+    c_cgerc(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void gerc(const integer m, const integer n,
@@ -2027,7 +2029,7 @@ inline void gerc(const integer m, const integer n,
                                        const dcomplex* y, const integer incy,
                                              dcomplex* a, const integer lda)
 {
-    zgerc(m, n, alpha, x, incx, y, incy, a, lda);
+    c_zgerc(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void geru(const integer m, const integer n,
@@ -2035,7 +2037,7 @@ inline void geru(const integer m, const integer n,
                                     const float* y, const integer incy,
                                           float* a, const integer lda)
 {
-    sger(m, n, alpha, x, incx, y, incy, a, lda);
+    c_sger(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void geru(const integer m, const integer n,
@@ -2043,7 +2045,7 @@ inline void geru(const integer m, const integer n,
                                      const double* y, const integer incy,
                                            double* a, const integer lda)
 {
-    dger(m, n, alpha, x, incx, y, incy, a, lda);
+    c_dger(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void geru(const integer m, const integer n,
@@ -2051,7 +2053,7 @@ inline void geru(const integer m, const integer n,
                                        const scomplex* y, const integer incy,
                                              scomplex* a, const integer lda)
 {
-    cgeru(m, n, alpha, x, incx, y, incy, a, lda);
+    c_cgeru(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void geru(const integer m, const integer n,
@@ -2059,7 +2061,7 @@ inline void geru(const integer m, const integer n,
                                        const dcomplex* y, const integer incy,
                                              dcomplex* a, const integer lda)
 {
-    zgeru(m, n, alpha, x, incx, y, incy, a, lda);
+    c_zgeru(m, n, alpha, x, incx, y, incy, a, lda);
 }
 
 #define ger gerc
@@ -2068,56 +2070,56 @@ inline void her(const char uplo, const integer n,
                 const float alpha, const float* x, const integer incx,
                                          float* a, const integer lda)
 {
-    ssyr(uplo, n, alpha, x, incx, a, lda);
+    c_ssyr(uplo, n, alpha, x, incx, a, lda);
 }
 
 inline void her(const char uplo, const integer n,
                 const double alpha, const double* x, const integer incx,
                                           double* a, const integer lda)
 {
-    dsyr(uplo, n, alpha, x, incx, a, lda);
+    c_dsyr(uplo, n, alpha, x, incx, a, lda);
 }
 
 inline void her(const char uplo, const integer n,
                 const float alpha, const scomplex* x, const integer incx,
                                             scomplex* a, const integer lda)
 {
-    cher(uplo, n, alpha, x, incx, a, lda);
+    c_cher(uplo, n, alpha, x, incx, a, lda);
 }
 
 inline void her(const char uplo, const integer n,
                 const double alpha, const dcomplex* x, const integer incx,
                                             dcomplex* a, const integer lda)
 {
-    zher(uplo, n, alpha, x, incx, a, lda);
+    c_zher(uplo, n, alpha, x, incx, a, lda);
 }
 
 inline void hpr(const char uplo, const integer n,
                 const float alpha, const float* x, const integer incx,
                                          float* ap)
 {
-    sspr(uplo, n, alpha, x, incx, ap);
+    c_sspr(uplo, n, alpha, x, incx, ap);
 }
 
 inline void hpr(const char uplo, const integer n,
                 const double alpha, const double* x, const integer incx,
                                           double* ap)
 {
-    dspr(uplo, n, alpha, x, incx, ap);
+    c_dspr(uplo, n, alpha, x, incx, ap);
 }
 
 inline void hpr(const char uplo, const integer n,
                 const float alpha, const scomplex* x, const integer incx,
                                             scomplex* ap)
 {
-    chpr(uplo, n, alpha, x, incx, ap);
+    c_chpr(uplo, n, alpha, x, incx, ap);
 }
 
 inline void hpr(const char uplo, const integer n,
                 const double alpha, const dcomplex* x, const integer incx,
                                             dcomplex* ap)
 {
-    zhpr(uplo, n, alpha, x, incx, ap);
+    c_zhpr(uplo, n, alpha, x, incx, ap);
 }
 
 inline void her2(const char uplo, const integer n,
@@ -2125,7 +2127,7 @@ inline void her2(const char uplo, const integer n,
                                     const float* y, const integer incy,
                                           float* a, const integer lda)
 {
-    ssyr2(uplo, n, alpha, x, incx, y, incy, a, lda);
+    c_ssyr2(uplo, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void her2(const char uplo, const integer n,
@@ -2133,14 +2135,14 @@ inline void her2(const char uplo, const integer n,
                                      const double* y, const integer incy,
                                            double* a, const integer lda)
 {
-    dsyr2(uplo, n, alpha, x, incx, y, incy, a, lda);
+    c_dsyr2(uplo, n, alpha, x, incx, y, incy, a, lda);
 }
 inline void her2(const char uplo, const integer n,
                  const scomplex alpha, const scomplex* x, const integer incx,
                                        const scomplex* y, const integer incy,
                                              scomplex* a, const integer lda)
 {
-    cher2(uplo, n, alpha, x, incx, y, incy, a, lda);
+    c_cher2(uplo, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void her2(const char uplo, const integer n,
@@ -2148,7 +2150,7 @@ inline void her2(const char uplo, const integer n,
                                        const dcomplex* y, const integer incy,
                                              dcomplex* a, const integer lda)
 {
-    zher2(uplo, n, alpha, x, incx, y, incy, a, lda);
+    c_zher2(uplo, n, alpha, x, incx, y, incy, a, lda);
 }
 
 inline void hpr2(const char uplo, const integer n,
@@ -2156,7 +2158,7 @@ inline void hpr2(const char uplo, const integer n,
                                     const float* y, const integer incy,
                                           float* ap)
 {
-    sspr2(uplo, n, alpha, x, incx, y, incy, ap);
+    c_sspr2(uplo, n, alpha, x, incx, y, incy, ap);
 }
 
 inline void hpr2(const char uplo, const integer n,
@@ -2164,7 +2166,7 @@ inline void hpr2(const char uplo, const integer n,
                                      const double* y, const integer incy,
                                            double* ap)
 {
-    dspr2(uplo, n, alpha, x, incx, y, incy, ap);
+    c_dspr2(uplo, n, alpha, x, incx, y, incy, ap);
 }
 
 inline void hpr2(const char uplo, const integer n,
@@ -2172,7 +2174,7 @@ inline void hpr2(const char uplo, const integer n,
                                        const scomplex* y, const integer incy,
                                              scomplex* ap)
 {
-    chpr2(uplo, n, alpha, x, incx, y, incy, ap);
+    c_chpr2(uplo, n, alpha, x, incx, y, incy, ap);
 }
 
 inline void hpr2(const char uplo, const integer n,
@@ -2180,7 +2182,7 @@ inline void hpr2(const char uplo, const integer n,
                                        const dcomplex* y, const integer incy,
                                              dcomplex* ap)
 {
-    zhpr2(uplo, n, alpha, x, incx, y, incy, ap);
+    c_zhpr2(uplo, n, alpha, x, incx, y, incy, ap);
 }
 
 /******************************************************************************
@@ -2194,7 +2196,7 @@ inline void gemm(const char transa, const char transb,
                                     const float* b, const integer ldb,
                  const float  beta,       float* c, const integer ldc)
 {
-    sgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_sgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void gemm(const char transa, const char transb,
@@ -2203,7 +2205,7 @@ inline void gemm(const char transa, const char transb,
                                      const double* b, const integer ldb,
                  const double  beta,       double* c, const integer ldc)
 {
-    dgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_dgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void gemm(const char transa, const char transb,
@@ -2212,7 +2214,7 @@ inline void gemm(const char transa, const char transb,
                                        const scomplex* b, const integer ldb,
                  const scomplex  beta,       scomplex* c, const integer ldc)
 {
-    cgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_cgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void gemm(const char transa, const char transb,
@@ -2221,7 +2223,7 @@ inline void gemm(const char transa, const char transb,
                                        const dcomplex* b, const integer ldb,
                  const dcomplex  beta,       dcomplex* c, const integer ldc)
 {
-    zgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_zgemm(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void hemm(const char side, const char uplo,
@@ -2230,7 +2232,7 @@ inline void hemm(const char side, const char uplo,
                                     const float* b, const integer ldb,
                  const float  beta,       float* c, const integer ldc)
 {
-    ssymm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_ssymm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void hemm(const char side, const char uplo,
@@ -2239,7 +2241,7 @@ inline void hemm(const char side, const char uplo,
                                      const double* b, const integer ldb,
                  const double  beta,       double* c, const integer ldc)
 {
-    dsymm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_dsymm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void hemm(const char side, const char uplo,
@@ -2248,7 +2250,7 @@ inline void hemm(const char side, const char uplo,
                                        const scomplex* b, const integer ldb,
                  const scomplex  beta,       scomplex* c, const integer ldc)
 {
-    chemm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_chemm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void hemm(const char side, const char uplo,
@@ -2257,7 +2259,7 @@ inline void hemm(const char side, const char uplo,
                                        const dcomplex* b, const integer ldb,
                  const dcomplex  beta,       dcomplex* c, const integer ldc)
 {
-    zhemm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_zhemm(side, uplo, m, n, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void syrk(const char uplo, const char trans,
@@ -2265,7 +2267,7 @@ inline void syrk(const char uplo, const char trans,
                  const float alpha, const float* a, const integer lda,
                  const float  beta,       float* c, const integer ldc)
 {
-    ssyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_ssyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void syrk(const char uplo, const char trans,
@@ -2273,7 +2275,7 @@ inline void syrk(const char uplo, const char trans,
                  const double alpha, const double* a, const integer lda,
                  const double  beta,       double* c, const integer ldc)
 {
-    dsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_dsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void syrk(const char uplo, const char trans,
@@ -2281,7 +2283,7 @@ inline void syrk(const char uplo, const char trans,
                  const scomplex alpha, const scomplex* a, const integer lda,
                  const scomplex  beta,       scomplex* c, const integer ldc)
 {
-    csyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_csyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void syrk(const char uplo, const char trans,
@@ -2289,7 +2291,7 @@ inline void syrk(const char uplo, const char trans,
                  const dcomplex alpha, const dcomplex* a, const integer lda,
                  const dcomplex  beta,       dcomplex* c, const integer ldc)
 {
-    zsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_zsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void herk(const char uplo, const char trans,
@@ -2297,7 +2299,7 @@ inline void herk(const char uplo, const char trans,
                  const float alpha, const float* a, const integer lda,
                  const float  beta,       float* c, const integer ldc)
 {
-    ssyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_ssyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void herk(const char uplo, const char trans,
@@ -2305,7 +2307,7 @@ inline void herk(const char uplo, const char trans,
                  const double alpha, const double* a, const integer lda,
                  const double  beta,       double* c, const integer ldc)
 {
-    dsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_dsyrk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void herk(const char uplo, const char trans,
@@ -2313,7 +2315,7 @@ inline void herk(const char uplo, const char trans,
                  const float alpha, const scomplex* a, const integer lda,
                  const float  beta,       scomplex* c, const integer ldc)
 {
-    cherk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_cherk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void herk(const char uplo, const char trans,
@@ -2321,7 +2323,7 @@ inline void herk(const char uplo, const char trans,
                  const double alpha, const dcomplex* a, const integer lda,
                  const double  beta,       dcomplex* c, const integer ldc)
 {
-    zherk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
+    c_zherk(uplo, trans, n, k, alpha, a, lda, beta, c, ldc);
 }
 
 inline void syr2k(const char uplo, const char trans,
@@ -2330,7 +2332,7 @@ inline void syr2k(const char uplo, const char trans,
                                      const float* b, const integer ldb,
                   const float  beta,       float* c, const integer ldc)
 {
-    ssyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_ssyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void syr2k(const char uplo, const char trans,
@@ -2339,7 +2341,7 @@ inline void syr2k(const char uplo, const char trans,
                                       const double* b, const integer ldb,
                   const double  beta,       double* c, const integer ldc)
 {
-    dsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_dsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void syr2k(const char uplo, const char trans,
@@ -2348,7 +2350,7 @@ inline void syr2k(const char uplo, const char trans,
                                         const scomplex* b, const integer ldb,
                   const scomplex  beta,       scomplex* c, const integer ldc)
 {
-    csyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_csyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void syr2k(const char uplo, const char trans,
@@ -2357,7 +2359,7 @@ inline void syr2k(const char uplo, const char trans,
                                         const dcomplex* b, const integer ldb,
                   const dcomplex  beta,       dcomplex* c, const integer ldc)
 {
-    zsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_zsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void her2k(const char uplo, const char trans,
@@ -2366,7 +2368,7 @@ inline void her2k(const char uplo, const char trans,
                                      const float* b, const integer ldb,
                   const float  beta,       float* c, const integer ldc)
 {
-    ssyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_ssyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void her2k(const char uplo, const char trans,
@@ -2375,7 +2377,7 @@ inline void her2k(const char uplo, const char trans,
                                       const double* b, const integer ldb,
                   const double  beta,       double* c, const integer ldc)
 {
-    dsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_dsyr2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void her2k(const char uplo, const char trans,
@@ -2384,7 +2386,7 @@ inline void her2k(const char uplo, const char trans,
                                         const scomplex* b, const integer ldb,
                   const    float  beta,       scomplex* c, const integer ldc)
 {
-    cher2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_cher2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void her2k(const char uplo, const char trans,
@@ -2393,7 +2395,7 @@ inline void her2k(const char uplo, const char trans,
                                         const dcomplex* b, const integer ldb,
                   const   double  beta,       dcomplex* c, const integer ldc)
 {
-    zher2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    c_zher2k(uplo, trans, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 }
 
 inline void trmm(const char side, const char uplo, const char transa, const char diag,
@@ -2401,7 +2403,7 @@ inline void trmm(const char side, const char uplo, const char transa, const char
                  const float alpha, const float* a, const integer lda,
                                           float* b, const integer ldb)
 {
-    strmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_strmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trmm(const char side, const char uplo, const char transa, const char diag,
@@ -2409,7 +2411,7 @@ inline void trmm(const char side, const char uplo, const char transa, const char
                  const double alpha, const double* a, const integer lda,
                                            double* b, const integer ldb)
 {
-    dtrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_dtrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trmm(const char side, const char uplo, const char transa, const char diag,
@@ -2417,7 +2419,7 @@ inline void trmm(const char side, const char uplo, const char transa, const char
                  const scomplex alpha, const scomplex* a, const integer lda,
                                              scomplex* b, const integer ldb)
 {
-    ctrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_ctrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trmm(const char side, const char uplo, const char transa, const char diag,
@@ -2425,7 +2427,7 @@ inline void trmm(const char side, const char uplo, const char transa, const char
                  const dcomplex alpha, const dcomplex* a, const integer lda,
                                              dcomplex* b, const integer ldb)
 {
-    ztrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_ztrmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trsm(const char side, const char uplo, const char transa, const char diag,
@@ -2433,7 +2435,7 @@ inline void trsm(const char side, const char uplo, const char transa, const char
                  const float alpha, const float* a, const integer lda,
                                           float* b, const integer ldb)
 {
-    strsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_strsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trsm(const char side, const char uplo, const char transa, const char diag,
@@ -2441,7 +2443,7 @@ inline void trsm(const char side, const char uplo, const char transa, const char
                  const double alpha, const double* a, const integer lda,
                                            double* b, const integer ldb)
 {
-    dtrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_dtrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trsm(const char side, const char uplo, const char transa, const char diag,
@@ -2449,7 +2451,7 @@ inline void trsm(const char side, const char uplo, const char transa, const char
                  const scomplex alpha, const scomplex* a, const integer lda,
                                              scomplex* b, const integer ldb)
 {
-    ctrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_ctrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 inline void trsm(const char side, const char uplo, const char transa, const char diag,
@@ -2457,7 +2459,7 @@ inline void trsm(const char side, const char uplo, const char transa, const char
                  const dcomplex alpha, const dcomplex* a, const integer lda,
                                              dcomplex* b, const integer ldb)
 {
-    ztrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
+    c_ztrsm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb);
 }
 
 }
