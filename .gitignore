@@ -4,3 +4,6 @@
 .project
 .cproject
 .deps
+.settings
+.ptp-sync
+.ptp-sync-folder
