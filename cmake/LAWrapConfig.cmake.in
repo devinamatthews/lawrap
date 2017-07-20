@@ -1,0 +1,76 @@
+# LAWrapConfig.cmake
+# --------------------
+#
+# LAWrap cmake module.
+# This module sets the following variables in your project::
+#
+#   LAWrap_FOUND - true if LAWrap and all required components found on the system
+#   LAWrap_VERSION - LAWrap version in format Major.Minor.Release
+#   LAWrap_INCLUDE_DIRS - Directories where LAWrap and LAPACK (if available) headers are located.
+#   LAWrap_INCLUDE_DIR - Directory where LAWrap headers are located.
+#   LAWrap_DEFINITIONS - Definitions necessary to use LAWrap, namely USING_LAWrap.
+#   LAWrap_LIBRARIES - compile flags and LAPACK libraries to link against.
+#   LAWrap_LIBRARY - empty.
+#   CMAKE_MODULE_PATH - appends location of accompanying FindTargetLAPACK.cmake module.
+#
+#
+# Available components: None
+#
+#
+# Exported targets::
+#
+# If LAWrap is found, this module defines the following :prop_tgt:`IMPORTED`
+# interface library targets. LAPACK headers (if available) and libraries are
+# attached to the target. ::
+#
+#   LAWrap::lawrap
+#
+#
+# Suggested usage::
+#
+#
+#   find_package(LAWrap)
+#   find_package(LAWrap 2.0 EXACT CONFIG REQUIRED)
+#
+#
+# The following variables can be set to guide the search for this package::
+#
+#   LAWrap_DIR - CMake variable, set to directory containing this Config file
+#   CMAKE_PREFIX_PATH - CMake variable, set to root directory of this package
+#   PATH - environment variable, set to bin directory of this package
+#   CMAKE_DISABLE_FIND_PACKAGE_LAWrap - CMake variable, disables
+#     find_package(LAWrap) when not REQUIRED, perhaps to force internal build
+
+@PACKAGE_INIT@
+
+set(PN LAWrap)
+
+# location of lawrap/lapack.h
+set(${PN}_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
+
+set(${PN}_LIBRARY "")
+set(${PN}_DEFINITIONS USING_${PN})
+
+check_required_components(${PN})
+
+# make detectable the FindTargetLAPACK.cmake module
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
+
+#-----------------------------------------------------------------------------
+# Don't include targets if this file is being picked up by another
+# project which has already built this as a subproject
+#-----------------------------------------------------------------------------
+if(NOT TARGET ${PN}::lawrap)
+    include("${CMAKE_CURRENT_LIST_DIR}/${PN}Targets.cmake")
+
+    if(NOT TARGET tgt::lapack)
+        find_package(TargetLAPACK REQUIRED)
+    endif()
+    set_target_properties(LAWrap::lawrap PROPERTIES INTERFACE_LINK_LIBRARIES tgt::lapack)
+
+    get_property(_iid TARGET LAWrap::lawrap PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
+    get_property(_ico TARGET LAWrap::lawrap PROPERTY INTERFACE_COMPILE_OPTIONS)
+    get_property(_ill TARGET LAWrap::lawrap PROPERTY INTERFACE_LINK_LIBRARIES)
+    set(LAWrap_INCLUDE_DIRS ${_iid})
+    set(LAWrap_LIBRARIES ${_ico} ${_ill})
+endif()
